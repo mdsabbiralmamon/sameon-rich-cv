@@ -1,9 +1,14 @@
-import Image from "next/image";
+import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
 
 export default function Home() {
   return (
+    <>
+    <header>
+      <HeroSection />
+    </header>
     <main>
-      <h2 className="text-5xl">main section</h2>
+
     </main>
+    </>
   );
 }
