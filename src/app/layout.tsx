@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/Shared/Navbar/Navbar";
 
 export const metadata: Metadata = {
   title: "SAMEON CV",
@@ -15,11 +16,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <header>
-
+          <Navbar />
         </header>
-        {children}
+        <main>
+          {children}
+        </main>
         <footer>
-          
+
         </footer>
       </body>
     </html>
