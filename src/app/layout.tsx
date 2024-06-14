@@ -18,7 +18,7 @@ export default function RootLayout({
         <header>
           <Navbar />
         </header>
-        <main>
+        <main className="border border-transparent">
           {children}
         </main>
         <footer>
