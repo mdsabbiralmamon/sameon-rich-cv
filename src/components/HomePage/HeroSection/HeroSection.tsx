@@ -16,8 +16,8 @@ export default function HeroSection() {
   console.log("data received", discordStatus);
 
   return (
-    <div className='flex justify-between items-center py-24'>
-      <div>
+    <div className='flex flex-col md:flex-row justify-between items-center'>
+      <div className='p-4'>
         <h3 className='bg-cyan-400 w-fit p-3 rounded-t-full text-xl font-bold rounded-r-full'>Hello I am</h3>
         <h2 className='text-5xl font-extrabold my-4'>Md Sabbir Al Mamon</h2>
         <h4 className='text-3xl front-bold'>Front-End Developer</h4>
@@ -32,7 +32,7 @@ export default function HeroSection() {
             <h4 className='inline-flex justify-center items-center gap-2'><IoLocationSharp /> 59, Mohakhali, Dhaka-1212</h4>
           </div>
         </div>
-        <div className='flex gap-4 py-4'>
+        <div className='flex gap-4 py-4 text-3xl'>
           <div>
             <FaFacebook />
           </div>
@@ -47,7 +47,7 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-      <div>
+      <div className='p-4 flex justify-center items-center'>
         <div className='profilePhoto rounded-full border-[14px] border-gray-900'>
           <div className='profilePhoto rounded-full border-[14px] border-gray-700 relative'>
             <Image src={profilePhoto} alt='profile photo of md sabbir al mamon' height={300} width={300} className='rounded-full' />

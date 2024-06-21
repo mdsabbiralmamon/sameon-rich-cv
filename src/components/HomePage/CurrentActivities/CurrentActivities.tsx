@@ -71,20 +71,20 @@ export default function CurrentActivities() {
                         <div>
                             <h2 className='text-3xl font-bold'>Current Devices:</h2>
                             <div className='flex flex-col lg:flex-row gap-8 my-8 '>
-                                <div className={`border w-full ${discordStatus?.active_on_discord_desktop ? 'border-green-500' : 'border-red-500'} rounded-lg p-8`}>
-                                    <FaComputer className={`sm:text-[7rem] mx-auto mb-4 ${discordStatus?.active_on_discord_desktop ? 'text-green-500' : 'text-red-500'}`} />
+                                <div className={`h-64 border w-full ${discordStatus?.active_on_discord_desktop ? 'border-green-500' : 'border-red-500'} rounded-lg p-8`}>
+                                    <FaComputer className={`text-[10rem] mx-auto mb-4 ${discordStatus?.active_on_discord_desktop ? 'text-green-500' : 'text-red-500'}`} />
                                     {
                                         discordStatus?.active_on_discord_desktop ? <p className='text-white bg-green-500 rounded-full text-center'>Online</p> : <p className='text-white bg-red-500 rounded-full text-center'>Offline</p>
                                     }
                                 </div>
                                 <div className={`border w-full ${discordStatus?.active_on_discord_mobile ? 'border-green-500' : 'border-red-500'} rounded-lg p-8`}>
-                                    <FaMobile className={`sm:text-[7rem] mx-auto mb-4 ${discordStatus?.active_on_discord_mobile ? 'text-green-500' : 'text-red-500'}`} />
+                                    <FaMobile className={`text-[10rem] mx-auto mb-4 ${discordStatus?.active_on_discord_mobile ? 'text-green-500' : 'text-red-500'}`} />
                                     {
                                         discordStatus?.active_on_discord_mobile ? <p className='text-white bg-green-500 rounded-full text-center'>Online</p> : <p className='text-white bg-red-500 rounded-full text-center'>Offline</p>
                                     }
                                 </div>
                                 <div className={`border w-full ${discordStatus?.active_on_discord_web ? 'border-green-500' : 'border-red-500'} rounded-lg p-8`}>
-                                    <FaGlobe className={`sm:text-[7rem] mx-auto mb-4 ${discordStatus?.active_on_discord_web ? 'text-green-500' : 'text-red-500'}`} />
+                                    <FaGlobe className={`text-[10rem] mx-auto mb-4 ${discordStatus?.active_on_discord_web ? 'text-green-500' : 'text-red-500'}`} />
                                     {
                                         discordStatus?.active_on_discord_web ? <p className='text-white bg-green-500 rounded-full text-center'>Online</p> : <p className='text-white bg-red-500 rounded-full text-center'>Offline</p>
                                     }

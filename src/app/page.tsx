@@ -7,7 +7,7 @@ export default function Home() {
       <div className="heroSection container mx-auto">
         <HeroSection />
       </div>
-      <div className="current container mx-auto my-24">
+      <div className="current container mx-auto">
         <CurrentActivities />
       </div>
     </>
