@@ -6,10 +6,11 @@ import onlineImage from '@/app/images/onliine.png'
 import useActivity from '@/app/hooks/UseActivity';
 import { FaGlobe, FaMobile, FaPaperPlane, FaWindows } from 'react-icons/fa';
 import { FaComputer } from 'react-icons/fa6';
+import axios from 'axios';
 
 export default function CurrentActivities() {
     const { discordStatus } = useActivity();
-
+    const [currentActivityIcon, setCurrentActivityIcon] = useState('');
     const [elapsedTime, setElapsedTime] = useState('');
 
     useEffect(() => {
@@ -30,10 +31,26 @@ export default function CurrentActivities() {
         return () => clearInterval(interval);
     }, [discordStatus]);
 
-    console.log("data received", discordStatus);
+    // console.log("data received", discordStatus);
 
     // Extract the first activity
     const activity = discordStatus?.activities[0];
+
+    useEffect(() => {
+        const activity = discordStatus?.activities[0];
+        if (!activity?.name) return;
+    
+        const fetchIcon = async () => {
+          try {
+            const res = await axios.get(`/api/getIcons?query=${activity.name}`);
+            setCurrentActivityIcon(res.data.preview_url);
+          } catch (error) {
+            console.error('Error fetching icon:', error);
+          }
+        };
+    
+        fetchIcon();
+      }, [discordStatus?.activities, activity?.name]);
 
     return (
         <div className='my-24'>
@@ -101,7 +118,9 @@ export default function CurrentActivities() {
                                         <div className='flex justify-between my-8'>
                                             <div className='flex gap-8'>
                                                 <div className='p-2 bg-cyan-400 rounded-md inline-flex justify-center items-center w-24 h-24'>
-                                                    <FaWindows className='text-3xl' />
+                                                    {
+                                                        <Image src={currentActivityIcon} alt={`${activity?.name}`} width={100} height={100}/>
+                                                    }
                                                 </div>
                                                 <div>
                                                     <h2 className='text-xl font-extrabold text-cyan-400'>{activity?.name}</h2>
