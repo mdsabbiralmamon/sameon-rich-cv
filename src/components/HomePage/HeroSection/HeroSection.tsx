@@ -9,6 +9,7 @@ import { IoLocationSharp } from 'react-icons/io5'
 import profilePhoto from '@/app/images/photo.png'
 import { TiTick } from 'react-icons/ti'
 import useActivity from '@/app/hooks/UseActivity'
+import Link from 'next/link'
 
 export default function HeroSection() {
   const { discordStatus } = useActivity();
@@ -34,16 +35,16 @@ export default function HeroSection() {
         </div>
         <div className='flex gap-4 py-4 text-3xl'>
           <div>
-            <FaFacebook />
+            <Link href={'https://www.facebook.com/mdsabb1ralmamon/'}><FaFacebook /></Link>
           </div>
           <div>
-            <FaTwitter />
+          <Link href={'https://twitter.com/mdsabbiralmamon'}><FaTwitter /></Link>
           </div>
           <div>
-            <FaGithub />
+          <Link href={'https://github.com/mdsabbiralmamon/'}><FaGithub /></Link>
           </div>
           <div>
-            <FaLinkedin />
+          <Link href={'https://www.linkedin.com/in/mdsabbiralmamon/'}><FaLinkedin /></Link>
           </div>
         </div>
       </div>
