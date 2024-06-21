@@ -14,7 +14,7 @@ async function fetchIcon(query: string): Promise<string> {
   try {
     const response = await axios.request(options);
     const data = response.data;
-    const firstIcon = data.icons && data.icons.length > 0 ? data.icons[0] : null;
+    const firstIcon = data.icons && data.icons.length > 0 ? data.icons[2] : null;
     if (firstIcon) {
       return firstIcon.raster_sizes[7].formats[0].preview_url;
     }
