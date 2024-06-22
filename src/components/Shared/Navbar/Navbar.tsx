@@ -23,7 +23,7 @@ export default function Navbar() {
         <li><Link className={`${newPath === '/#contact' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#contact'}>Contact</Link></li>
     </>
     return (
-        <div className='bg-gray-800 text-white shadow-xl fixed w-full z-10'>
+        <div className='bg-gray-800 text-white shadow-xl fixed w-full z-10 glass'>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
