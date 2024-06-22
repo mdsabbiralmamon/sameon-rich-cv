@@ -39,26 +39,26 @@ export default function CurrentActivities() {
     useEffect(() => {
         const activity = discordStatus?.activities[0];
         if (!activity?.name) return;
-    
+
         const fetchIcon = async () => {
-          try {
-            const res = await axios.get(`/api/getIcons?query=${activity.name}`);
-            setCurrentActivityIcon(res.data.preview_url);
-          } catch (error) {
-            console.error('Error fetching icon:', error);
-          }
+            try {
+                const res = await axios.get(`/api/getIcons?query=${activity.name}`);
+                setCurrentActivityIcon(res.data.preview_url);
+            } catch (error) {
+                console.error('Error fetching icon:', error);
+            }
         };
-    
+
         fetchIcon();
-      }, [discordStatus?.activities, activity?.name]);
+    }, [discordStatus?.activities, activity?.name]);
 
     return (
         <div className='my-24' id='onlineStatus'>
             <div className=' text-center'>
                 <h2 className='text-5xl font-extrabold'>Online Status</h2>
             </div>
-            <div className='grid sm:gap-0 lg:gap-8 grid-cols-1 lg:grid-cols-3 my-24 '>
-                <div className='flex justify-center items-center glass rounded-lg w-full mb-8 p-8 lg:h-full'>
+            <div className='grid sm:gap-0 md:gap-8 lg:gap-8 grid-cols-1 lg:grid-cols-3 my-24 '>
+                <div className='flex justify-center items-center glass rounded-lg w-full mb-8 p-8 md:h-full lg:h-full'>
                     <div className='text-center'>
                         <Image src={onlineImage} alt='online bg image' />
                         <h2 className='text-3xl'>I am now {" "}
@@ -119,7 +119,7 @@ export default function CurrentActivities() {
                                             <div className='flex gap-8'>
                                                 <div className='p-2 bg-cyan-400 rounded-md inline-flex justify-center items-center w-24 h-24'>
                                                     {
-                                                        <Image src={currentActivityIcon} alt={`${activity?.name}`} width={100} height={100}/>
+                                                        <Image src={currentActivityIcon} alt={`${activity?.name}`} width={100} height={100} />
                                                     }
                                                 </div>
                                                 <div>
@@ -147,6 +147,17 @@ export default function CurrentActivities() {
                                     </div>
                                 )
                         }
+                    </div>
+                </div>
+                <div className='glass rounded-lg w-full p-8 col-span-3 mt-4'>
+                    <h2 className='text-3xl font-bold'>Coding Activity (Last 7 days):</h2>
+                    <div className='flex flex-col md:flex-row gap-8 justify-between my-8'>
+                        <div className='rounded-xl w-full overflow-hidden'>
+                            <figure><embed className='w-full h-96' src="https://wakatime.com/share/@mdsabbiralmamon/51ef9805-6c90-418d-920e-911ec08b9ddd.svg"></embed></figure>
+                        </div>
+                        <div className='rounded-xl w-full overflow-hidden'>
+                            <figure><embed className='w-full h-96' src="https://wakatime.com/share/@mdsabbiralmamon/7bfdebaa-af34-4448-9e4f-a29963fa3210.svg"></embed></figure>
+                        </div>
                     </div>
                 </div>
             </div>
