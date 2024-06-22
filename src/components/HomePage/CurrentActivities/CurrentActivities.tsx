@@ -148,7 +148,7 @@ export default function CurrentActivities() {
                         }
                     </div>
                 </div>
-                <div className='glass rounded-lg w-full p-8 col-span-1 lg:col-span-3 mt-8 lg:mt-0'>
+                <div className='glass rounded-lg w-full p-8 col-span-1 lg:col-span-3'>
                     <h2 className='text-3xl font-bold'>Coding Activity (Last 7 days):</h2>
                     <div className='flex flex-col md:flex-row gap-8 justify-between my-8'>
                         <div className='rounded-xl w-full overflow-hidden'>
