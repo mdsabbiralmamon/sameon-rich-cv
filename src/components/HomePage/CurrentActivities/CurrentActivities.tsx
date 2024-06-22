@@ -53,7 +53,7 @@ export default function CurrentActivities() {
       }, [discordStatus?.activities, activity?.name]);
 
     return (
-        <div className='my-24'>
+        <div className='my-24' id='onlineStatus'>
             <div className=' text-center'>
                 <h2 className='text-5xl font-extrabold'>Online Status</h2>
             </div>
