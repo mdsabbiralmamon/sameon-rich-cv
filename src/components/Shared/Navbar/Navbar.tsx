@@ -3,17 +3,30 @@
 import useHash from '@/app/hooks/UseHash';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
     const pathname = usePathname();
     const hash = useHash();
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const newPath = hash !== null ? `${pathname}#${hash}` : pathname;
     
-    console.log("hash", newPath);
-    
+    // console.log("hash", newPath);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            setIsScrolled(scrollTop > 0);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const navLinks = <>
         <li><Link className={`${newPath === '/#onlineStatus' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#onlineStatus'}>Status</Link></li>
@@ -23,7 +36,7 @@ export default function Navbar() {
         <li><Link className={`${newPath === '/#contact' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#contact'}>Contact</Link></li>
     </>
     return (
-        <div className='bg-gray-800 text-white shadow-xl fixed w-full z-10 glass'>
+        <div className={`bg-gray-800 text-white shadow-xl fixed w-full ${isScrolled ? 'glass' : 'transparent'} z-10`}>
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
