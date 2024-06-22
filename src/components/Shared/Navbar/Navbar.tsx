@@ -17,10 +17,9 @@ export default function Navbar() {
     const navLinks = <>
         <li><Link className={`${newPath === '/#onlineStatus' ? 'active' : ''}`} href={'#onlineStatus'}>Status</Link></li>
         <li><Link className={`${newPath === '/#about' ? 'active' : ''}`} href={'#about'}>About</Link></li>
-        <li><Link className={`${newPath === '/skills' ? 'active' : ''}`} href={'/skills'}>Skills</Link></li>
-        <li><Link className={`${newPath === '/experiences' ? 'active' : ''}`} href={'/experiences'}>Experiences</Link></li>
-        <li><Link className={`${newPath === '/blog' ? 'active' : ''}`} href={'/blog'}>Blog</Link></li>
-        <li><Link className={`${newPath === '/contact' ? 'active' : ''}`} href={'/contact'}>Contact</Link></li>
+        <li><Link className={`${newPath === '/#skills' ? 'active' : ''}`} href={'#skills'}>Skills</Link></li>
+        <li><Link className={`${newPath === '/#experiences' ? 'active' : ''}`} href={'#experiences'}>Experiences</Link></li>
+        <li><Link className={`${newPath === '/#contact' ? 'active' : ''}`} href={'#contact'}>Contact</Link></li>
     </>
     return (
         <div className='bg-gray-800 text-white shadow-xl fixed w-full z-10'>
