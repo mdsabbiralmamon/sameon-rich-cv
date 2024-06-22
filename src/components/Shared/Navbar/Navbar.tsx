@@ -4,6 +4,7 @@ import useHash from '@/app/hooks/UseHash';
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -15,11 +16,11 @@ export default function Navbar() {
     
 
     const navLinks = <>
-        <li><Link className={`${newPath === '/#onlineStatus' ? 'active' : ''}`} href={'#onlineStatus'}>Status</Link></li>
-        <li><Link className={`${newPath === '/#about' ? 'active' : ''}`} href={'#about'}>About</Link></li>
-        <li><Link className={`${newPath === '/#skills' ? 'active' : ''}`} href={'#skills'}>Skills</Link></li>
-        <li><Link className={`${newPath === '/#experiences' ? 'active' : ''}`} href={'#experiences'}>Experiences</Link></li>
-        <li><Link className={`${newPath === '/#contact' ? 'active' : ''}`} href={'#contact'}>Contact</Link></li>
+        <li><Link className={`${newPath === '/#onlineStatus' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#onlineStatus'}>Status</Link></li>
+        <li><Link className={`${newPath === '/#about' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#about'}>About</Link></li>
+        <li><Link className={`${newPath === '/#skills' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#skills'}>Skills</Link></li>
+        <li><Link className={`${newPath === '/#experiences' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#experiences'}>Experiences</Link></li>
+        <li><Link className={`${newPath === '/#contact' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#contact'}>Contact</Link></li>
     </>
     return (
         <div className='bg-gray-800 text-white shadow-xl fixed w-full z-10'>
