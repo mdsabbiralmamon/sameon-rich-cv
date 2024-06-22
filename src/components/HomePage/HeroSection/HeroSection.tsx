@@ -10,6 +10,7 @@ import profilePhoto from '@/app/images/photo.jpg'
 import { TiTick } from 'react-icons/ti'
 import useActivity from '@/app/hooks/UseActivity'
 import Link from 'next/link'
+import Typewriter from 'typewriter-effect';
 
 export default function HeroSection() {
   const { discordStatus } = useActivity();
@@ -21,7 +22,14 @@ export default function HeroSection() {
       <div className='p-4'>
         <h3 className='bg-cyan-400 w-fit p-3 rounded-t-full text-xl font-bold rounded-r-full'>Hello I am</h3>
         <h2 className='text-5xl font-extrabold my-4'>Md Sabbir Al Mamon</h2>
-        <h4 className='text-3xl front-bold'>Front-End Developer</h4>
+        {/* <h4 className='text-3xl front-bold'>Front-End Developer</h4> */}
+        <h4 className='text-3xl front-bold'><Typewriter
+          options={{
+            strings: ['Programmer', 'Designer', 'Developer', 'Front-End Developer'],
+            autoStart: true,
+            loop: true,
+          }}
+        /></h4>
         <div className='my-4'>
           <div>
             <h4 className='inline-flex justify-center items-center gap-2'><IoIosMail /> md.sabbiralmamon@gmail.com</h4>
@@ -38,13 +46,13 @@ export default function HeroSection() {
             <Link href={'https://www.facebook.com/mdsabb1ralmamon/'}><FaFacebook /></Link>
           </div>
           <div>
-          <Link href={'https://twitter.com/mdsabbiralmamon'}><FaTwitter /></Link>
+            <Link href={'https://twitter.com/mdsabbiralmamon'}><FaTwitter /></Link>
           </div>
           <div>
-          <Link href={'https://github.com/mdsabbiralmamon/'}><FaGithub /></Link>
+            <Link href={'https://github.com/mdsabbiralmamon/'}><FaGithub /></Link>
           </div>
           <div>
-          <Link href={'https://www.linkedin.com/in/mdsabbiralmamon/'}><FaLinkedin /></Link>
+            <Link href={'https://www.linkedin.com/in/mdsabbiralmamon/'}><FaLinkedin /></Link>
           </div>
         </div>
       </div>
