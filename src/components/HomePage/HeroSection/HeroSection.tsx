@@ -6,7 +6,7 @@ import { FaLinkedin } from 'react-icons/fa6'
 import { IoIosMail } from 'react-icons/io'
 import { IoLocationSharp } from 'react-icons/io5'
 
-import profilePhoto from '@/app/images/photo.png'
+import profilePhoto from '@/app/images/photo.jpg'
 import { TiTick } from 'react-icons/ti'
 import useActivity from '@/app/hooks/UseActivity'
 import Link from 'next/link'
@@ -14,7 +14,7 @@ import Link from 'next/link'
 export default function HeroSection() {
   const { discordStatus } = useActivity();
 
-  console.log("data received", discordStatus);
+  // console.log("data received", discordStatus);
 
   return (
     <div className='flex flex-col md:flex-row justify-between items-center'>
