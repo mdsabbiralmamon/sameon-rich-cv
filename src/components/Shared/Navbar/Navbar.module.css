@@ -1,0 +1,38 @@
+.activeNavLink {
+    position: relative;
+    font-weight: bold;
+    background: none !important;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 2px;
+    margin: 0 18px;
+}
+
+.activeNavLink::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    border-radius: 0%;
+    animation: animateBorder 0.3s ease-in-out forwards;
+}
+
+@keyframes animateBorder {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.inActiveNavLink {
+    background: none !important;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 2px;
+    margin: 0 18px;
+}
