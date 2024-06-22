@@ -57,11 +57,11 @@ export default function CurrentActivities() {
             <div className=' text-center'>
                 <h2 className='text-5xl font-extrabold'>Online Status</h2>
             </div>
-            <div className='grid sm:gap-0 md:gap-8 lg:gap-8 grid-cols-1 lg:grid-cols-3 my-24 '>
-                <div className='flex justify-center items-center glass rounded-lg w-full mb-8 p-8 md:h-full lg:h-full'>
+            <div className='grid gap-8 grid-cols-1 lg:grid-cols-3 my-24'>
+                <div className='flex justify-center items-center glass rounded-lg w-full h-full mb-8 p-8'>
                     <div className='text-center'>
                         <Image src={onlineImage} alt='online bg image' />
-                        <h2 className='text-3xl'>I am now {" "}
+                        <h2 className='text-3xl'>I am now{" "}
                             {
                                 discordStatus?.discord_status === "online" ? (
                                     <span className='text-green-500'>online</span>
@@ -73,21 +73,21 @@ export default function CurrentActivities() {
                         {
                             discordStatus?.discord_status === "online" ? (
                                 <div className='my-8'>
-                                    <button className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane /> Let{"'"} talk </button>
+                                    <button className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane /> Let{"'"}s talk </button>
                                 </div>
                             ) : (
                                 <div className='my-8'>
-                                    <button className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane />Drop Away Message</button>
+                                    <button className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane /> Drop Away Message</button>
                                 </div>
                             )
                         }
                     </div>
                 </div>
-                <div className='col-span-2 space-y-8 w-full'>
+                <div className='col-span-1 lg:col-span-2 space-y-8 w-full'>
                     <div className='glass rounded-lg w-full p-8'>
                         <div>
                             <h2 className='text-3xl font-bold'>Current Devices:</h2>
-                            <div className='flex flex-col lg:flex-row gap-8 my-8 '>
+                            <div className='flex flex-col lg:flex-row gap-8 my-8'>
                                 <div className={`border w-full ${discordStatus?.active_on_discord_desktop ? 'border-green-500' : 'border-red-500'} rounded-lg p-8`}>
                                     <FaComputer className={`text-[10rem] mx-auto mb-4 ${discordStatus?.active_on_discord_desktop ? 'text-green-500' : 'text-red-500'}`} />
                                     {
@@ -111,45 +111,44 @@ export default function CurrentActivities() {
                     </div>
                     <div className='glass rounded-lg w-full p-8'>
                         {
-                            activity ?
-                                (
-                                    <div>
-                                        <h2 className='text-3xl font-bold'>Currently Using:</h2>
-                                        <div className='flex justify-between my-8'>
-                                            <div className='flex gap-8'>
-                                                <div className='p-2 bg-cyan-400 rounded-md inline-flex justify-center items-center w-24 h-24'>
-                                                    {
-                                                        <Image src={currentActivityIcon} alt={`${activity?.name}`} width={100} height={100} />
-                                                    }
-                                                </div>
-                                                <div>
-                                                    <h2 className='text-xl font-extrabold text-cyan-400'>{activity?.name}</h2>
-                                                    <p className='my-2'>Started Working at: {activity?.timestamps?.start ? new Date(activity.timestamps.start).toLocaleTimeString() : 'N/A'}</p>
-                                                    <p>Time Elapsed: {elapsedTime}</p>
-                                                </div>
+                            activity ? (
+                                <div>
+                                    <h2 className='text-3xl font-bold'>Currently Using:</h2>
+                                    <div className='flex justify-between my-8'>
+                                        <div className='flex gap-8'>
+                                            <div className='p-2 bg-cyan-400 rounded-md inline-flex justify-center items-center w-24 h-24'>
+                                                {
+                                                    <Image src={currentActivityIcon} alt={`${activity?.name}`} width={100} height={100} />
+                                                }
+                                            </div>
+                                            <div>
+                                                <h2 className='text-xl font-extrabold text-cyan-400'>{activity?.name}</h2>
+                                                <p className='my-2'>Started Working at: {activity?.timestamps?.start ? new Date(activity.timestamps.start).toLocaleTimeString() : 'N/A'}</p>
+                                                <p>Time Elapsed: {elapsedTime}</p>
                                             </div>
                                         </div>
                                     </div>
-                                ) : (
-                                    <div>
-                                        <h2 className='text-3xl font-bold'>Currently Working on:</h2>
-                                        <div className='flex justify-between my-8'>
-                                            <div className='flex gap-8'>
-                                                <div className='p-2 bg-gray-400 rounded-md inline-flex justify-center items-center w-24 h-24'>
-                                                    <FaWindows className='text-3xl' />
-                                                </div>
-                                                <div>
-                                                    <h2 className='text-xl font-extrabold text-gray-400'>I am sleeping now</h2>
-                                                    <p className='my-2'>Start Working at: After finishing my sleep</p>
-                                                </div>
+                                </div>
+                            ) : (
+                                <div>
+                                    <h2 className='text-3xl font-bold'>Currently Working on:</h2>
+                                    <div className='flex justify-between my-8'>
+                                        <div className='flex gap-8'>
+                                            <div className='p-2 bg-gray-400 rounded-md inline-flex justify-center items-center w-24 h-24'>
+                                                <FaWindows className='text-3xl' />
+                                            </div>
+                                            <div>
+                                                <h2 className='text-xl font-extrabold text-gray-400'>I am sleeping now</h2>
+                                                <p className='my-2'>Start Working at: After finishing my sleep</p>
                                             </div>
                                         </div>
                                     </div>
-                                )
+                                </div>
+                            )
                         }
                     </div>
                 </div>
-                <div className='glass rounded-lg w-full p-8 col-span-3 mt-8 lg:mt-0'>
+                <div className='glass rounded-lg w-full p-8 col-span-1 lg:col-span-3 mt-8 lg:mt-0'>
                     <h2 className='text-3xl font-bold'>Coding Activity (Last 7 days):</h2>
                     <div className='flex flex-col md:flex-row gap-8 justify-between my-8'>
                         <div className='rounded-xl w-full overflow-hidden'>
