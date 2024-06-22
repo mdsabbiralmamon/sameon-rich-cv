@@ -8,7 +8,7 @@ import { SiAdobexd } from 'react-icons/si'
 export default function AboutSection() {
   return (
     <div>
-      <div className='h-screen flex p-8 gap-8 justify-center items-center flex-col md:flex-row' id='about'>
+      <div className=' py-40 flex p-8 gap-8 justify-center items-center flex-col md:flex-row' id='about'>
         <div className='flex-1'>
           <div>
             <Image src={aboutImg} alt='about me bg image' />
