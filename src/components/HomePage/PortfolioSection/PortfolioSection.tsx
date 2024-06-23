@@ -8,6 +8,10 @@ type PortfolioItem = {
   _id: string;
   projectName: string;
   bannerImage: string;
+  clientGitHub: string;
+  serverGitHub: string;
+  liveLink: string;
+  projectDescription: string;
 };
 
 export default function PortfolioSection() {
@@ -25,9 +29,9 @@ export default function PortfolioSection() {
     <div className='mb-24' id='portfolio'>
       <div className=' text-center'>
         <h2 className='text-5xl font-extrabold my-4'>Portfolio</h2>
-        <h2 className='text-xl font-bold mb-24'>My Works</h2>
+        <h2 className='text-xl font-bold mb-12'>My Works</h2>
       </div>
-      <div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+      <div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-8'>
         {
           portfolioData.map(project => <PortfolioCard key={project._id} project={project} />)
         }
