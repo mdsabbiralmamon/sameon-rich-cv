@@ -7,7 +7,7 @@ import { SiAdobeillustrator, SiAdobephotoshop, SiExpress, SiFirebase, SiJsonwebt
 
 export default function ResumeSection() {
   return (
-    <div>
+    <div id='resume'>
       <h2 className='text-5xl font-extrabold border-b-2 border-b-white mb-12 pb-2'>Resume</h2>
       <div className='flex flex-col lg:flex-row gap-8'>
         <div className='flex-1 p-8'>
