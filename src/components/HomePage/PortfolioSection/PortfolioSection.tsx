@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 type PortfolioItem = {
   _id: string;
   projectName: string;
+  bannerImage: string;
 };
 
 export default function PortfolioSection() {
