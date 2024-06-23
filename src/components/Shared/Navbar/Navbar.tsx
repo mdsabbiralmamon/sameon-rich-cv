@@ -32,8 +32,7 @@ export default function Navbar() {
         <li><Link className={`${newPath === '/#onlineStatus' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#onlineStatus'}>Status</Link></li>
         <li><Link className={`${newPath === '/#about' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#about'}>About</Link></li>
         <li><Link className={`${newPath === '/#resume' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#resume'}>Resume</Link></li>
-        <li><Link className={`${newPath === '/#experiences' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#experiences'}>Experiences</Link></li>
-        <li><Link className={`${newPath === '/#contact' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#contact'}>Contact</Link></li>
+        <li><Link className={`${newPath === '/#portfolio' ? `${styles.activeNavLink} active` : `${styles.inActiveNavLink}`}`} href={'#portfolio'}>Portfolio</Link></li>
     </>
     return (
         <div className={`bg-gray-800 text-white shadow-xl fixed w-full ${isScrolled ? 'glass' : 'transparent'} z-10`}>
