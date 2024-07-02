@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Shared/Navbar/Navbar";
+import Footer from "@/components/Shared/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "SAMEON CV",
@@ -22,7 +23,7 @@ export default function RootLayout({
           {children}
         </main>
         <footer>
-
+          <Footer />
         </footer>
       </body>
     </html>
