@@ -13,6 +13,11 @@ export default function CurrentActivities() {
     const [currentActivityIcon, setCurrentActivityIcon] = useState('');
     const [elapsedTime, setElapsedTime] = useState('');
 
+    // mail button
+    const handleClick = () => {
+        window.location.href = 'mailto:md.sabbiralmamon@gmail.com?subject=New%20message%20from%20someone%20CV&body=Hi%20there%2C%0A%0AWe%20need%20to%20talk.';
+    };
+
     useEffect(() => {
         if (!discordStatus?.activities[0]?.timestamps?.start) return;
 
@@ -73,11 +78,11 @@ export default function CurrentActivities() {
                         {
                             discordStatus?.discord_status === "online" ? (
                                 <div className='my-8'>
-                                    <button className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane /> Let{"'"}s talk </button>
+                                    <button onClick={handleClick} className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane /> Let{"'"}s talk </button>
                                 </div>
                             ) : (
                                 <div className='my-8'>
-                                    <button className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane /> Drop Away Message</button>
+                                    <button onClick={handleClick} className='btn rounded-full bg-cyan-400 border-none font-bold inline-flex'><FaPaperPlane /> Drop Away Message</button>
                                 </div>
                             )
                         }
