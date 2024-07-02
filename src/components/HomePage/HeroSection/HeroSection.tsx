@@ -42,16 +42,16 @@ export default function HeroSection() {
           </div>
         </div>
         <div className='flex gap-4 py-4 text-3xl'>
-          <div>
+          <div className='hover:text-cyan-400 hover:scale-150 transition-all duration-300 ease-in-out'>
             <Link href={'https://www.facebook.com/mdsabb1ralmamon/'}><FaFacebook /></Link>
           </div>
-          <div>
+          <div className='hover:text-cyan-400 hover:scale-150 transition-all duration-300 ease-in-out'>
             <Link href={'https://twitter.com/mdsabbiralmamon'}><FaTwitter /></Link>
           </div>
-          <div>
+          <div className='hover:text-cyan-400 hover:scale-150 transition-all duration-300 ease-in-out'>
             <Link href={'https://github.com/mdsabbiralmamon/'}><FaGithub /></Link>
           </div>
-          <div>
+          <div className='hover:text-cyan-400 hover:scale-150 transition-all duration-300 ease-in-out'>
             <Link href={'https://www.linkedin.com/in/mdsabbiralmamon/'}><FaLinkedin /></Link>
           </div>
         </div>
