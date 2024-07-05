@@ -1,3 +1,4 @@
+import { ContactUs } from "@/components/ContactUs/ContactUs";
 import AboutSection from "@/components/HomePage/AboutSection/AboutSection";
 import CurrentActivities from "@/components/HomePage/CurrentActivities/CurrentActivities";
 import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
@@ -21,6 +22,9 @@ export default function Home() {
       </div>
       <div className="portfolio container mx-auto">
         <PortfolioSection />
+      </div>
+      <div className="Contact container mx-auto">
+        <ContactUs />
       </div>
     </>
   );
