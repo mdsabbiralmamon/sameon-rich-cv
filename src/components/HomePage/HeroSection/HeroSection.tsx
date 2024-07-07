@@ -18,7 +18,7 @@ export default function HeroSection() {
   // console.log("data received", discordStatus);
 
   return (
-    <div className='flex flex-col md:flex-row justify-between items-center'>
+    <div className='flex flex-col-reverse md:flex-row justify-between items-center'>
       <div className='p-4'>
         <h3 className='bg-cyan-400 w-fit p-3 rounded-t-full text-xl font-bold rounded-r-full'>Hello I am</h3>
         <h2 className='text-5xl font-extrabold my-4'>Md Sabbir Al Mamon</h2>
