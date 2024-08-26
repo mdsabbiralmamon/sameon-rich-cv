@@ -1,40 +1,62 @@
 'use client';
 
-import React, { useRef, FormEvent } from 'react';
+import React, { useRef, FormEvent, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
 export const ContactUs: React.FC = () => {
     const form = useRef<HTMLFormElement | null>(null);
+    const [userName, setUserName] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [message, setMessage] = useState('');
 
     const sendEmail = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (form.current) {
-            emailjs
-                .sendForm('sameon-cv', 'sameon-cv', form.current, {
-                    publicKey: 'nqtGbxhko2-OWTNTX',
-                })
-                .then(
-                    () => {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Message Sent!',
-                            text: 'Your message has been sent successfully.',
-                        });
-
-                        // Clear the form fields
-                        form.current?.reset();
-                    },
-                    (error) => {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Message Failed',
-                            text: `Failed to send message: ${error.text}`,
-                        });
-                    }
-                );
+        // Basic validation to check if fields are filled
+        if (!userName.trim() || !userEmail.trim() || !message.trim()) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Incomplete Form',
+                text: 'Please fill in all fields before submitting.',
+            });
+            return;
         }
+
+        emailjs
+            .send(
+                'sameon-cv', // serviceID
+                'sameon-cv', // templateID
+                {
+                    from_name: userName,
+                    from_email: userEmail,
+                    reply_to: userEmail,
+                    message: message,
+                },
+                'nqtGbxhko2-OWTNTX' // publicKey
+            )
+            .then(
+                () => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'Your message has been sent successfully.',
+                    });
+
+                    // Clear the form fields
+                    form.current?.reset();
+                    setUserName('');
+                    setUserEmail('');
+                    setMessage('');
+                },
+                (error) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Message Failed',
+                        text: `Failed to send message: ${error.text}`,
+                    });
+                }
+            );
     };
 
     return (
@@ -48,16 +70,37 @@ export const ContactUs: React.FC = () => {
                     <div className='flex flex-col w-full items-center justify-center'>
                         <div className='w-full my-2'>
                             <label>Name</label>
-                            <input className='w-full rounded-lg p-4 text-cyan-400' type="text" name="user_name" />
+                            <input 
+                                className='w-full rounded-lg p-4 text-cyan-400' 
+                                type="text" 
+                                name="user_name" 
+                                value={userName}
+                                onChange={(e) => setUserName(e.target.value)}
+                            />
                         </div>
                         <div className='w-full my-2'>
                             <label>Email</label>
-                            <input className='w-full rounded-lg p-4 text-cyan-400' type="email" name="user_email" />
+                            <input 
+                                className='w-full rounded-lg p-4 text-cyan-400' 
+                                type="email" 
+                                name="user_email" 
+                                value={userEmail}
+                                onChange={(e) => setUserEmail(e.target.value)}
+                            />
                         </div>
                         <div className='w-full my-2'>
                             <label>Message</label>
-                            <textarea className='w-full rounded-lg p-4 text-cyan-400 h-52' name="message" />
-                            <input className='btn w-full border-none bg-cyan-400' type="submit" value="Send" />
+                            <textarea 
+                                className='w-full rounded-lg p-4 text-cyan-400 h-52' 
+                                name="message" 
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                            />
+                            <input 
+                                className='btn w-full border-none bg-cyan-400' 
+                                type="submit" 
+                                value="Send" 
+                            />
                         </div>
                     </div>
                 </form>
